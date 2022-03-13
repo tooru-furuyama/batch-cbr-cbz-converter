@@ -5,7 +5,7 @@ Create CBR (RAR) or CBZ (Zip) file from multiple JPEG or PNG files in the same f
 - There are multiple folders in which JPEG or PNG files are stored
 - Create CBR (RAR) or CBZ (Zip) files for each folder
 
-## Use case scenarios
+## Pre-requisite
 - Python 3 is installed on the host
 - RAR, UNRAR (WinRAR) and 7-zip are installed somewhere on the host
 - Parameters are configured within config.json file
