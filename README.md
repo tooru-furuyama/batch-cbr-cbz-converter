@@ -11,5 +11,8 @@ Create CBR (RAR) or CBZ (Zip) file from multiple JPEG or PNG files in the same f
 - Parameters are configured within config.json file
 
 ## Known issues, To-do items
-- Remove full path information from the archive
+### Pack
+- Tentatively multiprocessing support removed (to fix path issues)
+- Multi-byte character support
+### Unpack
 - Multi-byte character support
