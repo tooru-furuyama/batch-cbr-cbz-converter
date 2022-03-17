@@ -1,8 +1,8 @@
+#!/usr/bin/env python3
 import os
 import argparse
 import json
 from pathlib import Path
-# import glob
 import subprocess
 import multiprocessing
 
@@ -37,12 +37,15 @@ class UnPack:
             if len(self.__in_filetype) == 0:
                 self.__in_filetype = config_data['decompression_options']['input_filetype']
             
-            if self.__in_filetype == 'rar':
+            if self.__in_filetype == 'rar' or self.__in_filetype == 'cbr':
                 self.__command = config_data['exec_options']['unrar_path']
                 self.__param = config_data['decompression_options']['unrar_option']
-            elif self.__in_filetype == 'zip':
+            elif self.__in_filetype == 'zip' or self.__in_filetype == 'cbz':
                 self.__command = config_data['exec_options']['7zip_path']
                 self.__param = config_data['decompression_options']['7zip_option']
+
+            self.__verbose_print__('Command location:   ' + self.__command)
+            self.__verbose_print__('Command parameters: ' + self.__param)
 
         except:
             print('Error')
@@ -53,7 +56,6 @@ class UnPack:
     def exec(self):
         target_file = '*.' + self.__in_filetype
         filelist = Path(os.getcwd()).glob(target_file)
-        # filelist = glob.glob(os.getcwd() + os.sep + target_file)
         self.__verbose_print__(filelist)
 
         if self.__max_proccess > multiprocessing.cpu_count():
