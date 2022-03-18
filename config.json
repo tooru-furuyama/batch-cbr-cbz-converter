@@ -2,9 +2,9 @@
     "exec_options":{
         "verbose_option":true,
         "max_process":4,
-        "rar_path":"E:\\System\\opt\\archiver64\\rar.exe",
-        "unrar_path":"E:\\System\\opt\\archiver64\\unrar.exe",
-        "7zip_path":"E:\\System\\opt\\archiver64\\7z.exe"
+        "rar_path":"C:\\Program Files\\WinRAR\\rar.exe",
+        "unrar_path":"C:\\Program Files\\WinRAR\\\\unrar.exe",
+        "7zip_path":"C:\\Program Files\\7-zip\\7z.exe"
     },
     "decompression_options":{
         "input_filetype":"rar",
