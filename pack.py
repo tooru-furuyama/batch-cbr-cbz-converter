@@ -76,7 +76,8 @@ class Pack:
 
 
     def __list_directories__(self, path):
-        self.__list_folder = glob.glob(path + os.sep + '**' + os.sep, recursive = True)
+        self.__list_folder = glob.glob(glob.escape(path) + os.sep + '**' + os.sep, recursive = True)
+        self.__verbose_print__(self.__list_folder)
         return
 
 
@@ -87,7 +88,7 @@ class Pack:
         for folder_path in self.__list_folder:
             folder_name = os.path.basename(os.path.dirname(folder_path))
             target_file = '*.' + self.__in_filetype
-            if len(glob.glob(folder_path + os.sep + target_file)) > 0:
+            if len(glob.glob(os.path.join(glob.escape(folder_path), target_file))) > 0:
                 current_path = os.getcwd()
                 os.chdir(folder_path)
                 shell_command = ' '.join([self.__command, self.__param, '"' + current_path + os.sep + folder_name + '.' + self.__out_fileextension + '"', '"' + target_file + '"'])
